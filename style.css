@@ -1,0 +1,222 @@
+const missions = [
+  {
+    emoji: '🔐',
+    color: '#8358ff',
+    title: 'Password Power',
+    rule: 'Passwords are private.',
+    text: 'Kids learn why passwords should not be shared with friends, chats, or fake prize pages.'
+  },
+  {
+    emoji: '🎣',
+    color: '#ff5bd6',
+    title: 'Scam Spotter',
+    rule: 'Fast prizes can be tricks.',
+    text: 'T-Why teaches kids to pause before clicking free coins, urgent warnings, and mystery links.'
+  },
+  {
+    emoji: '🤖',
+    color: '#1677ff',
+    title: 'AI or Real?',
+    rule: 'Ask if it was edited.',
+    text: 'A kid-friendly intro to AI images, fake voices, and videos that look real but may not be.'
+  },
+  {
+    emoji: '📶',
+    color: '#34d5ff',
+    title: 'Wi‑Fi Wise',
+    rule: 'Not every network is safe.',
+    text: 'Simple reminders about public Wi‑Fi, unknown networks, and asking before connecting.'
+  },
+  {
+    emoji: '🛡️',
+    color: '#5be878',
+    title: 'Privacy Shield',
+    rule: 'Keep personal info safe.',
+    text: 'T-Why explains names, addresses, schools, locations, photos, and when to ask an adult.'
+  },
+  {
+    emoji: '💬',
+    color: '#ff9838',
+    title: 'Kindness Code',
+    rule: 'Be smart and kind.',
+    text: 'Kids practice what to do when messages, games, or comments get mean, weird, or uncomfortable.'
+  }
+];
+
+const episodes = [
+  ['01', 'Do Not Click the Giant Button', 'Scam links, fake prizes, and the first T-Why safety rule.'],
+  ['02', 'The Password Goblin', 'Why passwords stay private even with friends.'],
+  ['03', 'AI Made This?', 'How to question images, voices, and videos online.'],
+  ['04', 'Public Wi‑Fi Mystery', 'Why unknown networks need a grown-up check.'],
+  ['05', 'The Download Dragon', 'Safe downloading and app permission basics.'],
+  ['06', 'Stranger in the Game Chat', 'How to respond when someone online asks personal questions.'],
+  ['07', 'The Overshare Alarm', 'Names, schools, addresses, locations, and private details.'],
+  ['08', 'Kindness Code Activated', 'What to do when online comments get rude or scary.']
+];
+
+const questions = [
+  {
+    question: "A game pop-up says: 'Free coins! Click fast!' What should you do?",
+    answers: [
+      { text: 'Click before it disappears.', correct: false },
+      { text: 'Pause and ask a grown-up first.', correct: true },
+      { text: 'Share your password to prove it is you.', correct: false }
+    ],
+    badge: 'Scam Spotter',
+    lesson: 'Fast, exciting messages can be tricks. Pause before you click.'
+  },
+  {
+    question: 'Your friend asks for your password. What is the safest answer?',
+    answers: [
+      { text: 'No. Passwords stay private.', correct: true },
+      { text: 'Only if they promise not to tell.', correct: false },
+      { text: 'Send it in a text so you do not forget.', correct: false }
+    ],
+    badge: 'Password Protector',
+    lesson: 'Passwords are private. Even friends should not need them.'
+  },
+  {
+    question: 'A video online looks real but something feels strange. What should T-Why ask?',
+    answers: [
+      { text: 'Could this be edited or AI-made?', correct: true },
+      { text: 'If it is online, it must be true.', correct: false },
+      { text: 'Share it before checking.', correct: false }
+    ],
+    badge: 'AI Checker',
+    lesson: 'AI can make things look real. Ask questions before trusting or sharing.'
+  },
+  {
+    question: 'A website asks for your home address to unlock a prize. What should you do?',
+    answers: [
+      { text: 'Type it in right away.', correct: false },
+      { text: 'Use a fake address.', correct: false },
+      { text: 'Stop and ask a trusted adult.', correct: true }
+    ],
+    badge: 'Privacy Shield',
+    lesson: 'Personal information should be protected. Ask before sharing it.'
+  },
+  {
+    question: 'Which T-Why rule helps most online?',
+    answers: [
+      { text: 'Pause. Ask why. Ask a grown-up.', correct: true },
+      { text: 'Click first, think later.', correct: false },
+      { text: 'Trust every pop-up.', correct: false }
+    ],
+    badge: 'Safety Captain',
+    lesson: 'That rule works for scams, downloads, strangers, links, and AI.'
+  }
+];
+
+const missionGrid = document.getElementById('missionGrid');
+const episodeGrid = document.getElementById('episodeGrid');
+const questionText = document.getElementById('questionText');
+const answerOptions = document.getElementById('answerOptions');
+const feedbackText = document.getElementById('feedbackText');
+const xpText = document.getElementById('xpText');
+const levelLabel = document.getElementById('levelLabel');
+const progressBar = document.getElementById('progressBar');
+const badgeShelf = document.getElementById('badgeShelf');
+const robotBubble = document.getElementById('robotBubble');
+const restartBtn = document.getElementById('restartBtn');
+
+let current = 0;
+let xp = 0;
+let answered = false;
+
+function renderMissions() {
+  missionGrid.innerHTML = missions.map(mission => `
+    <article class="mission-card" style="color: ${mission.color}">
+      <span class="emoji">${mission.emoji}</span>
+      <h3>${mission.title}</h3>
+      <p>${mission.text}</p>
+      <strong>T-Why rule: ${mission.rule}</strong>
+    </article>
+  `).join('');
+}
+
+function renderEpisodes() {
+  episodeGrid.innerHTML = episodes.map(([num, title, text]) => `
+    <article class="episode-card">
+      <span>${num}</span>
+      <h3>${title}</h3>
+      <p>${text}</p>
+    </article>
+  `).join('');
+}
+
+function startQuest() {
+  current = 0;
+  xp = 0;
+  badgeShelf.innerHTML = '';
+  xpText.textContent = '0 XP';
+  levelLabel.textContent = 'Level 1';
+  robotBubble.textContent = 'T-Why is ready for a tech check!';
+  showQuestion();
+}
+
+function showQuestion() {
+  answered = false;
+  const item = questions[current];
+  questionText.textContent = item.question;
+  answerOptions.innerHTML = '';
+  feedbackText.textContent = '';
+  progressBar.style.width = `${(current / questions.length) * 100}%`;
+
+  item.answers.forEach(answer => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.textContent = answer.text;
+    btn.addEventListener('click', () => chooseAnswer(btn, answer, item));
+    answerOptions.appendChild(btn);
+  });
+}
+
+function chooseAnswer(button, answer, item) {
+  if (answered) return;
+  answered = true;
+  const buttons = [...answerOptions.querySelectorAll('button')];
+  buttons.forEach(btn => { btn.disabled = true; });
+
+  if (answer.correct) {
+    button.classList.add('correct');
+    xp += 20;
+    xpText.textContent = `${xp} XP`;
+    levelLabel.textContent = `Level ${Math.min(5, Math.floor(xp / 20) + 1)}`;
+    feedbackText.textContent = `Correct! ${item.lesson}`;
+    robotBubble.textContent = `Badge unlocked: ${item.badge}`;
+    const badge = document.createElement('span');
+    badge.className = 'badge';
+    badge.textContent = item.badge;
+    badgeShelf.appendChild(badge);
+  } else {
+    button.classList.add('wrong');
+    feedbackText.textContent = `Good try. ${item.lesson}`;
+    robotBubble.textContent = 'T-Why says: pause and think it through.';
+    buttons.forEach(btn => {
+      const correctAnswer = item.answers.find(a => a.text === btn.textContent);
+      if (correctAnswer && correctAnswer.correct) btn.classList.add('correct');
+    });
+  }
+
+  window.setTimeout(() => {
+    current += 1;
+    if (current >= questions.length) {
+      finishQuest();
+    } else {
+      showQuestion();
+    }
+  }, 2100);
+}
+
+function finishQuest() {
+  progressBar.style.width = '100%';
+  questionText.textContent = 'Safety Quest complete!';
+  answerOptions.innerHTML = '';
+  feedbackText.textContent = `You earned ${xp} XP. Remember: Pause. Ask why. Ask a grown-up.`;
+  robotBubble.textContent = 'Great job, safety hero!';
+}
+
+restartBtn.addEventListener('click', startQuest);
+renderMissions();
+renderEpisodes();
+startQuest();
