@@ -1,28 +1,169 @@
-# T-Why Page Engagement Strategy
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T-Why the IT Guy | Kid Tech Safety Lab</title>
+  <meta name="description" content="T-Why the IT Guy teaches kids simple tech safety, scam spotting, password habits, AI awareness, and smart clicking through quick videos and playful missions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-I rebuilt the page around child-friendly engagement patterns rather than a plain landing page.
+  <header class="topbar">
+    <a class="brand" href="#hero" aria-label="T-Why the IT Guy home">
+      <span class="brand-badge">T?</span>
+      <span class="brand-text"><strong>T-Why</strong><small>The IT Guy</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#watch">Watch</a>
+      <a href="#missions">Missions</a>
+      <a href="#quest">Quest</a>
+      <a href="#episodes">Scripts</a>
+      <a href="#grownups">Grown-Ups</a>
+    </nav>
+    <a class="nav-cta" href="#quest">Start Quest</a>
+  </header>
 
-## Layout strategy
-- **Character first:** T-Why appears immediately in the hero because kids connect faster with a guide/mascot than with a block of text.
-- **One big promise:** The hero repeats one rule: “Pause. Ask why. Ask a grown-up.” Repetition helps retention.
-- **Short visual chunks:** The page avoids long paragraphs and uses cards, icons, XP, badges, and color blocks.
-- **Immediate action:** The first calls to action are Watch and Pick a Mission, not “learn more.”
-- **Game loop:** The Safety Quest uses a simple loop: question → choice → feedback → XP → badge.
-- **Repeatable content engine:** Each mission maps directly into an episode, printable lesson, game level, and social post.
+  <main id="main">
+    <section class="hero" id="hero">
+      <div class="bubble bubble-one"></div>
+      <div class="bubble bubble-two"></div>
+      <div class="bubble bubble-three"></div>
 
-## Metrics to track after launch
-- 3-second video retention
-- 10-second video retention
-- Full video completion rate
-- Quest start rate
-- Quest completion rate
-- Badge unlock rate
-- Repeat visits
-- Parent/teacher resource clicks
-- YouTube/Shorts subscribe conversion
+      <div class="hero-copy">
+        <p class="eyebrow">Kid Tech Safety • AI Awareness • Smart Clicks</p>
+        <h1>Pause. Ask why. Stay safe online.</h1>
+        <p class="lead">Meet <strong>T-Why the IT Guy</strong>, a friendly robot guide who turns online safety into quick videos, colorful missions, and bite-size tech habits kids can remember.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#watch">▶ Watch T-Why</a>
+          <a class="button secondary" href="#quest">Play Safety Quest</a>
+        </div>
+        <div class="rule-card" aria-label="T-Why safety rule">
+          <span>1. Pause</span>
+          <span>2. Ask why</span>
+          <span>3. Ask a grown-up</span>
+        </div>
+      </div>
 
-## Recommended content cadence
-Start with 8 short episodes. Launch two per week for four weeks, then review which topics get the best completion and engagement before scaling.
+      <div class="mascot-card" aria-label="T-Why mascot">
+        <div class="glow-ring"></div>
+        <img src="twhy-avatar.jpg" alt="T-Why the IT Guy robot mascot smiling in a tech lab" />
+        <div class="speech-bubble">Hi! I’m T-Why. Ready for a tech check?</div>
+      </div>
+    </section>
 
-## Important note
-For a kid-facing brand, keep the current page privacy-first: no accounts, no personal data forms, no chat, no user uploads, and no open comments on the website itself.
+    <section class="engagement-strip" aria-label="Engagement design pattern">
+      <article><span>⚡</span><strong>Fast Hook</strong><p>One topic, one clear rule, right away.</p></article>
+      <article><span>🎮</span><strong>Play Loop</strong><p>Answer, feedback, XP, badge.</p></article>
+      <article><span>🌈</span><strong>Color Zones</strong><p>Bright sections guide attention.</p></article>
+      <article><span>🤖</span><strong>Mascot Led</strong><p>Teach with character, not lectures.</p></article>
+    </section>
+
+    <section class="watch" id="watch">
+      <div class="section-header centered">
+        <p class="eyebrow">Launch Video</p>
+        <h2>Start with the character. Teach one habit.</h2>
+        <p>The first video should make kids like T-Why, repeat the safety rule, and click into a mission.</p>
+      </div>
+      <div class="video-layout">
+        <div class="video-frame">
+          <video controls preload="metadata" poster="twhy-avatar.jpg">
+            <source src="twhy-tech-lab-video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <aside class="video-notes">
+          <h3>What every video should do</h3>
+          <ul>
+            <li>Open with T-Why in the first few seconds.</li>
+            <li>Teach one safety idea, not five.</li>
+            <li>Use a repeatable phrase kids can say back.</li>
+            <li>End with a mission, quiz, or grown-up question.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="missions" id="missions">
+      <div class="section-header">
+        <p class="eyebrow">Choose a Mission</p>
+        <h2>Small lessons. Big safety habits.</h2>
+        <p>Each card teaches one tech safety habit with a kid-friendly rule and a quick action.</p>
+      </div>
+      <div class="mission-grid" id="missionGrid"></div>
+    </section>
+
+    <section class="quest" id="quest">
+      <div class="quest-intro">
+        <p class="eyebrow">Interactive Practice</p>
+        <h2>T-Why Safety Quest</h2>
+        <p>Kids learn best when they get to try. This mini quest turns safety choices into fast feedback, XP, and badges.</p>
+        <div class="score-card">
+          <div><span id="xpScore">0</span><small>XP</small></div>
+          <div><span id="badgeCount">0</span><small>Badges</small></div>
+        </div>
+      </div>
+      <div class="quest-card">
+        <div class="quest-progress"><span id="progressBar"></span></div>
+        <p class="question-label">Mission Question</p>
+        <h3 id="questionText">Loading...</h3>
+        <div class="answers" id="answerButtons"></div>
+        <p class="feedback" id="feedbackText" aria-live="polite"></p>
+        <button class="button primary" id="nextQuestion">Next Mission</button>
+      </div>
+    </section>
+
+    <section class="episodes" id="episodes">
+      <div class="section-header centered">
+        <p class="eyebrow">Intentional Launch Plan</p>
+        <h2>Season 1 should build trust before chasing views.</h2>
+        <p>Use a repeatable format: hook, silly problem, one safety rule, one practice question, and a simple call to action.</p>
+      </div>
+      <div class="episode-grid">
+        <article><span>01</span><h3>The Click Monster</h3><p>Links, ads, and why we pause before tapping.</p></article>
+        <article><span>02</span><h3>Password Pizza</h3><p>Build a strong password like a secret recipe.</p></article>
+        <article><span>03</span><h3>Wi-Fi Spy Glass</h3><p>Public Wi-Fi and what not to do on it.</p></article>
+        <article><span>04</span><h3>AI Helper or Trickster?</h3><p>How to ask an adult before trusting AI answers.</p></article>
+        <article><span>05</span><h3>The Download Dragon</h3><p>Unknown apps, game mods, and permission traps.</p></article>
+        <article><span>06</span><h3>Kindness Keyboard</h3><p>Online words matter, even when no one is nearby.</p></article>
+      </div>
+    </section>
+
+    <section class="visual-world">
+      <div class="world-copy">
+        <p class="eyebrow">The T-Why World</p>
+        <h2>Colorful enough for kids. Trustworthy enough for grown-ups.</h2>
+        <p>The page is built to feel like a kid-safe tech lab: bright, playful, and simple, while still giving parents and teachers a clear safety message.</p>
+      </div>
+      <div class="world-images">
+        <img src="twhy-classroom.jpg" alt="T-Why teaching kids in a bright classroom" />
+        <img src="twhy-server.jpg" alt="T-Why in a futuristic server room" />
+      </div>
+    </section>
+
+    <section class="grownups" id="grownups">
+      <div class="grownups-card">
+        <p class="eyebrow">For Parents, Teachers, and Sponsors</p>
+        <h2>A safer tech brand with room to grow.</h2>
+        <p>T-Why can become a video series, classroom resource, sponsor-friendly safety campaign, and future kid-tech learning brand.</p>
+        <div class="trust-grid">
+          <article><strong>No hidden data collection</strong><span>The page is static and kid-friendly.</span></article>
+          <article><strong>Simple repeatable rule</strong><span>Pause. Ask why. Ask a grown-up.</span></article>
+          <article><strong>Expandable content</strong><span>Videos, worksheets, games, badges, and classroom packs.</span></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>T-Why the IT Guy</strong>
+    <span>Kid tech safety, smart clicks, and AI awareness.</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
