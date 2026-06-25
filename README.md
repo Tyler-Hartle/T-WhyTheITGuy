@@ -1,27 +1,30 @@
-# T-Why The IT Guy — Tech Lab Homepage
+# T-Why The IT Guy — GitHub Pages Website
 
-This is a clean GitHub Pages-ready landing page for T-Why The IT Guy and Byte.
+This is a static website for **T-Why The IT Guy** and **Byte**.
 
-## Upload instructions
+## Files
 
-Upload these files directly into the repository root:
+Upload these files directly into the root of your GitHub repository:
 
 - `index.html`
-- `twhy-byte-tech-lab.png`
-- `twhy-byte-intro.mp4`
+- `style.css`
+- `script.js`
+- `twhy-dashboard-bg.png`
+- `README.md`
 
-Do not upload the ZIP itself. Extract it first.
+## Important
 
-## Site sections
+Do not upload the ZIP file itself. Extract it first, then upload the files.
 
-- Welcome to the Tech Lab
-- Watch the intro video
-- Safety Missions
-- Safety Quest
-- Meet Byte
-- Grown-Up Zone
+## Sections
 
-## Notes
+- Home / Tech Lab
+- Missions
+- Games
+- Videos
+- Byte's Word Lab
+- Parent Zone
 
-This public version does not include internal video scripts or internal engagement strategy files.
-The homepage uses the T-Why + Byte image as the main visual theme and uses clickable tech-lab cards as navigation.
+## Word Lab
+
+The site includes a 50-word interactive vocabulary game for Byte to teach basic tech words to kids.

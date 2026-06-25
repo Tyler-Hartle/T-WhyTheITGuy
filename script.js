@@ -1,101 +1,154 @@
-const missions = [
-  { icon: '🔐', title: 'Password Power', color: '#1667ff', text: 'Build a strong password like a secret recipe: long, mixed, and not easy to guess.' },
-  { icon: '🕵️', title: 'Scam Spotter', color: '#ff4eb8', text: 'Look for pressure, weird links, prizes, and messages that make you rush.' },
-  { icon: '📶', title: 'Wi-Fi Check', color: '#20d4ff', text: 'Public Wi-Fi is not the place for passwords, payments, or private info.' },
-  { icon: '🤖', title: 'AI Awareness', color: '#8b35ff', text: 'AI can help, but it can also be wrong. Ask a grown-up before trusting big answers.' },
-  { icon: '📲', title: 'Download Detective', color: '#20d47b', text: 'Before downloading games, mods, or apps, check the source and ask permission.' },
-  { icon: '💬', title: 'Kindness Keyboard', color: '#ff8a2a', text: 'If it would hurt out loud, pause before typing it online.' }
+// T-Why The IT Guy — interactive website logic
+
+const words = [
+  { word: "password", definition: "A secret word or phrase you use to log in and keep your account safe.", choices: ["A secret code", "A video game", "A type of robot", "A way to search"] },
+  { word: "username", definition: "The name you use to sign in or show who you are on an app or website.", choices: ["Your sign-in name", "A battery", "A computer bug", "A camera"] },
+  { word: "Wi-Fi", definition: "A wireless way for devices to connect to the internet.", choices: ["Wireless internet", "A keyboard", "A folder", "A charger"] },
+  { word: "internet", definition: "A huge network that connects computers, websites, apps, and people around the world.", choices: ["A worldwide network", "A single laptop", "A mouse button", "A secret password"] },
+  { word: "app", definition: "A program on a phone, tablet, or computer that helps you do something.", choices: ["A program", "A cable", "A pop-up", "A microphone"] },
+  { word: "browser", definition: "An app you use to visit websites.", choices: ["A website viewer", "A robot arm", "A game controller", "A battery"] },
+  { word: "search", definition: "To look for information online by typing words into a search box.", choices: ["Looking for information", "Turning off a device", "Making a password", "Charging a phone"] },
+  { word: "website", definition: "A page or group of pages you can visit on the internet.", choices: ["An online page", "A keyboard key", "A private code", "A virus"] },
+  { word: "link", definition: "Something you click or tap to go to another page, video, or file.", choices: ["A clickable path", "A battery level", "A computer screen", "A strong password"] },
+  { word: "download", definition: "To save something from the internet onto your device.", choices: ["Save to your device", "Send to the internet", "Turn off Wi-Fi", "Delete a keyboard"] },
+  { word: "upload", definition: "To send something from your device to the internet.", choices: ["Send to the internet", "Guess a password", "Close a folder", "Move a mouse"] },
+  { word: "email", definition: "A digital message sent over the internet.", choices: ["A digital message", "A game level", "A robot helper", "A type of screen"] },
+  { word: "message", definition: "Words, pictures, or videos sent from one person to another.", choices: ["Something sent to someone", "A Wi-Fi signal", "A computer bug", "A monitor"] },
+  { word: "emoji", definition: "A small picture used to show feelings, ideas, or reactions.", choices: ["A feeling picture", "A private folder", "A dangerous link", "A charger"] },
+  { word: "camera", definition: "A tool that takes photos or videos.", choices: ["A photo tool", "A scam message", "A web page", "A password rule"] },
+  { word: "microphone", definition: "A tool that records sound or lets others hear your voice.", choices: ["A sound tool", "A robot password", "A download button", "A file folder"] },
+  { word: "screen", definition: "The part of a device where you see pictures, words, videos, and games.", choices: ["Where you see things", "A secret code", "A fake prize", "A router"] },
+  { word: "keyboard", definition: "A tool with keys you press to type letters, numbers, and symbols.", choices: ["A typing tool", "A video file", "An online ad", "A tablet camera"] },
+  { word: "mouse", definition: "A tool you move and click to control a pointer on a computer.", choices: ["A clicking tool", "A cloud file", "A scammer", "A public post"] },
+  { word: "tablet", definition: "A flat touch-screen device bigger than a phone and smaller than many laptops.", choices: ["A touch-screen device", "A private password", "A Wi-Fi rule", "A virus"] },
+  { word: "laptop", definition: "A portable computer you can open, type on, and carry around.", choices: ["A portable computer", "A video message", "A search word", "A cloud"] },
+  { word: "robot", definition: "A machine that can do tasks, sometimes by following instructions or using sensors.", choices: ["A task machine", "A website name", "A folder", "A charger"] },
+  { word: "code", definition: "Instructions that tell a computer, app, game, or website what to do.", choices: ["Computer instructions", "A light bulb", "A camera lens", "A chat bubble"] },
+  { word: "bug", definition: "A mistake in code that can make a program act wrong.", choices: ["A code mistake", "A password helper", "A strong Wi-Fi signal", "A screen"] },
+  { word: "update", definition: "A newer version of an app or device software that can fix problems or add features.", choices: ["A newer version", "A fake link", "A mouse click", "A username"] },
+  { word: "cloud", definition: "Internet storage where files or apps can be saved and reached from different devices.", choices: ["Internet storage", "A keyboard button", "A computer virus", "A battery"] },
+  { word: "file", definition: "A saved item on a device, like a picture, document, song, or video.", choices: ["A saved item", "A scam call", "A Wi-Fi password", "A robot face"] },
+  { word: "folder", definition: "A place on a device where files are organized together.", choices: ["A place for files", "A type of link", "A microphone", "A pop-up"] },
+  { word: "click", definition: "To press a mouse button or tap something to choose it.", choices: ["Choose something", "Hide a password", "Download a person", "Turn into Wi-Fi"] },
+  { word: "tap", definition: "To touch a screen quickly with your finger.", choices: ["Touch a screen", "Write code", "Make a file private", "Record sound"] },
+  { word: "swipe", definition: "To slide your finger across a screen.", choices: ["Slide your finger", "Open a laptop", "Create a virus", "Charge a battery"] },
+  { word: "scroll", definition: "To move up, down, or sideways on a page or screen.", choices: ["Move on a page", "Send an email", "Make a password", "Close Wi-Fi"] },
+  { word: "login", definition: "To enter your username and password to get into an account.", choices: ["Enter an account", "Leave an account", "Charge a device", "Delete a screen"] },
+  { word: "logout", definition: "To leave an account so someone else cannot use it easily.", choices: ["Leave an account", "Make a video", "Click a scam", "Open a folder"] },
+  { word: "private", definition: "Something meant only for you or people you choose.", choices: ["Only for chosen people", "For everyone", "A broken keyboard", "A public ad"] },
+  { word: "public", definition: "Something that many people may be able to see.", choices: ["Visible to many people", "A secret code", "A safe password", "A hidden file"] },
+  { word: "safe", definition: "Protected from danger or problems.", choices: ["Protected", "Broken", "Fake", "Loud"] },
+  { word: "scam", definition: "A trick that tries to steal money, information, or access.", choices: ["A harmful trick", "A good update", "A safe game", "A password helper"] },
+  { word: "pop-up", definition: "A small window or message that suddenly appears on a screen.", choices: ["A sudden window", "A folder name", "A robot battery", "A Wi-Fi cable"] },
+  { word: "ad", definition: "A message that tries to sell or promote something.", choices: ["A promotion", "A secret file", "A mouse", "A safety rule"] },
+  { word: "virus", definition: "A harmful program that can damage a device or cause problems.", choices: ["A harmful program", "A friendly robot", "A strong password", "A website picture"] },
+  { word: "battery", definition: "The power inside a device that lets it work without being plugged in.", choices: ["Device power", "A scam message", "A private link", "A keyboard"] },
+  { word: "charger", definition: "A cord or device that gives power back to a battery.", choices: ["Power giver", "A search app", "A folder", "A virus"] },
+  { word: "settings", definition: "Controls you can change to make an app or device work the way you want.", choices: ["Changeable controls", "A cloud game", "A fake prize", "A public post"] },
+  { word: "profile", definition: "A page that shows information about a person, account, or character.", choices: ["An info page", "A battery", "A coding mistake", "A Wi-Fi router"] },
+  { word: "video", definition: "Moving pictures with sound or action.", choices: ["Moving pictures", "A password", "A folder", "A search box"] },
+  { word: "game", definition: "A fun activity with rules, goals, or challenges.", choices: ["A fun challenge", "A browser", "A scam trick", "A charger"] },
+  { word: "chat", definition: "A conversation using messages online or in an app.", choices: ["Message conversation", "A camera button", "A folder", "A strong lock"] },
+  { word: "AI", definition: "Computer technology that can help answer questions, create things, or recognize patterns.", choices: ["Helpful computer technology", "A type of charger", "A Wi-Fi password", "A pop-up ad"] },
+  { word: "cyber", definition: "A word used for things connected to computers, networks, and online safety.", choices: ["Computer and online safety", "A screen brightness", "A keyboard sound", "A camera picture"] }
 ];
 
-const questions = [
-  {
-    q: 'A game pop-up says: “Click now to win free coins!” What should you do first?',
-    answers: ['Click fast before it disappears', 'Pause and ask why it wants a click', 'Send it to every friend'],
-    correct: 1,
-    badge: 'Smart Click Badge'
-  },
-  {
-    q: 'Which password is safer?',
-    answers: ['dog123', 'myname2024', 'PurpleRocket!River77'],
-    correct: 2,
-    badge: 'Password Power Badge'
-  },
-  {
-    q: 'A stranger in chat asks for your school name. What is the T-Why move?',
-    answers: ['Tell them if they seem nice', 'Ignore the safety rule', 'Stop and ask a grown-up'],
-    correct: 2,
-    badge: 'Privacy Shield Badge'
-  },
-  {
-    q: 'AI gives you an answer that sounds confident. What should you remember?',
-    answers: ['AI is always right', 'AI can be helpful but needs checking', 'Never ask questions again'],
-    correct: 1,
-    badge: 'AI Checker Badge'
+let current = null;
+let score = 0;
+let streak = 0;
+const learned = new Set();
+
+const currentWord = document.getElementById("currentWord");
+const currentDefinition = document.getElementById("currentDefinition");
+const answerButtons = document.getElementById("answerButtons");
+const wordResult = document.getElementById("wordResult");
+const byteHint = document.getElementById("byteHint");
+const scoreEl = document.getElementById("score");
+const streakEl = document.getElementById("streak");
+const learnedEl = document.getElementById("learned");
+const wordBankButtons = document.getElementById("wordBankButtons");
+
+function shuffle(array) {
+  return array
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+}
+
+function pickWord(wordText) {
+  if (wordText) {
+    current = words.find(item => item.word.toLowerCase() === wordText.toLowerCase()) || words[0];
+  } else {
+    current = words[Math.floor(Math.random() * words.length)];
   }
-];
 
-const missionGrid = document.getElementById('missionGrid');
-missions.forEach((mission) => {
-  const card = document.createElement('article');
-  card.className = 'mission-card';
-  card.style.setProperty('--card-color', mission.color);
-  card.innerHTML = `<div class="mission-icon">${mission.icon}</div><h3>${mission.title}</h3><p>${mission.text}</p>`;
-  missionGrid.appendChild(card);
-});
+  currentWord.textContent = current.word;
+  currentDefinition.textContent = current.definition;
+  wordResult.textContent = "";
+  byteHint.textContent = "Pick the answer that matches the word!";
 
-let index = 0;
-let xp = 0;
-const badges = new Set();
+  const correct = current.choices[0];
+  const answers = shuffle(current.choices);
 
-const questionText = document.getElementById('questionText');
-const answerButtons = document.getElementById('answerButtons');
-const feedbackText = document.getElementById('feedbackText');
-const nextQuestion = document.getElementById('nextQuestion');
-const xpScore = document.getElementById('xpScore');
-const badgeCount = document.getElementById('badgeCount');
-const progressBar = document.getElementById('progressBar');
-
-function renderQuestion() {
-  const item = questions[index];
-  questionText.textContent = item.q;
-  answerButtons.innerHTML = '';
-  feedbackText.textContent = '';
-  nextQuestion.style.display = 'none';
-  progressBar.style.width = `${((index) / questions.length) * 100}%`;
-
-  item.answers.forEach((answer, i) => {
-    const button = document.createElement('button');
-    button.textContent = answer;
-    button.addEventListener('click', () => checkAnswer(button, i));
+  answerButtons.innerHTML = "";
+  answers.forEach(choice => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = choice;
+    button.addEventListener("click", () => checkAnswer(choice === correct, correct));
     answerButtons.appendChild(button);
+  });
+
+  document.getElementById("word-lab").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function checkAnswer(isCorrect, correct) {
+  if (isCorrect) {
+    score += 50;
+    streak += 1;
+    learned.add(current.word);
+    wordResult.textContent = "⭐ Great job! Byte says you learned that one!";
+    byteHint.textContent = "Nice! Want another word?";
+  } else {
+    streak = 0;
+    wordResult.textContent = `Almost! The best answer is: ${correct}`;
+    byteHint.textContent = "No worries. Learning means trying again!";
+  }
+
+  scoreEl.textContent = score;
+  streakEl.textContent = streak;
+  learnedEl.textContent = learned.size;
+}
+
+function buildWordBank() {
+  wordBankButtons.innerHTML = "";
+  words.forEach(item => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.textContent = item.word;
+    btn.addEventListener("click", () => pickWord(item.word));
+    wordBankButtons.appendChild(btn);
   });
 }
 
-function checkAnswer(button, choice) {
-  const item = questions[index];
-  const buttons = [...answerButtons.querySelectorAll('button')];
-  buttons.forEach((btn) => (btn.disabled = true));
+document.getElementById("newWordBtn").addEventListener("click", () => pickWord());
 
-  if (choice === item.correct) {
-    button.classList.add('correct');
-    xp += 25;
-    badges.add(item.badge);
-    feedbackText.textContent = `Nice tech check! You earned the ${item.badge}.`;
-  } else {
-    button.classList.add('wrong');
-    buttons[item.correct].classList.add('correct');
-    feedbackText.textContent = 'Good try. T-Why says: Pause, ask why, then choose the safest option.';
-  }
-
-  xpScore.textContent = xp;
-  badgeCount.textContent = badges.size;
-  progressBar.style.width = `${((index + 1) / questions.length) * 100}%`;
-  nextQuestion.style.display = 'inline-flex';
-}
-
-nextQuestion.addEventListener('click', () => {
-  index = (index + 1) % questions.length;
-  renderQuestion();
+document.querySelectorAll("[data-jump-word]").forEach(button => {
+  button.addEventListener("click", () => {
+    pickWord(button.dataset.jumpWord);
+  });
 });
 
-renderQuestion();
+document.querySelectorAll("[data-answer]").forEach(button => {
+  button.addEventListener("click", () => {
+    const result = document.getElementById("questResult");
+    if (button.dataset.answer === "correct") {
+      result.textContent = "⭐ Correct! Pause first, then ask a grown-up.";
+    } else {
+      result.textContent = "⚠️ Not quite. Byte says: pause before you click!";
+    }
+  });
+});
+
+buildWordBank();
+pickWord("password");
