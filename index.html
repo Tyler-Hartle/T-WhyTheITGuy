@@ -4,256 +4,61 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>T-Why The IT Guy | Tech Lab</title>
-  <meta name="description" content="T-Why The IT Guy and Byte teach kids online safety through games, videos, missions, and Byte's Word Lab." />
+  <meta name="description" content="T-Why The IT Guy and Byte teach kids online safety through videos, games, missions, and Byte's Word Lab." />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="site-header">
-    <a class="logo" href="#home" aria-label="T-Why The IT Guy home">
-      <span class="logo-face">🤖</span>
-      <span>
-        <strong>T-Why</strong>
-        <small>The IT Guy</small>
-      </span>
+    <a href="#home" class="brand" aria-label="T-Why The IT Guy home">
+      <span class="brand-bot">🤖</span><span><strong>T-Why</strong><small>The IT Guy</small></span>
     </a>
-
-    <nav class="main-nav" aria-label="Main navigation">
-      <a href="#home">🏠 Home</a>
-      <a href="#missions">🚀 Missions</a>
-      <a href="#games">🎮 Games</a>
-      <a href="#videos">▶️ Videos</a>
-      <a href="#word-lab">🅱️ Word Lab</a>
-      <a href="#parents">👥 Parent Zone</a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#home">Home</a><a href="#missions">Missions</a><a href="#games">Games</a><a href="#videos">Videos</a><a href="#word-lab">Word Lab</a><a href="#parents">Parent Zone</a>
     </nav>
-
-    <div class="score-pill" aria-label="Demo score">
-      <span>⭐ 1,250</span>
-      <span>💠 15</span>
-    </div>
   </header>
-
   <main id="home">
-    <!-- HERO / CLICKABLE TECH LAB -->
-    <section class="hero-dashboard" aria-label="Clickable T-Why Tech Lab">
-      <img src="twhy-dashboard-bg.png" alt="T-Why and Byte in a colorful tech lab with monitors, games, videos, and word lab stations." />
-
-      <!-- Transparent clickable hotspots over the dashboard image.
-           These work best on desktop. Mobile users also get the card menu below. -->
-      <a class="hotspot h-missions" href="#missions" aria-label="Go to Missions"></a>
-      <a class="hotspot h-videos" href="#videos" aria-label="Go to Videos"></a>
-      <a class="hotspot h-games" href="#games" aria-label="Go to Games"></a>
-      <a class="hotspot h-wordlab" href="#word-lab" aria-label="Go to Byte's Word Lab"></a>
-      <a class="hotspot h-parents" href="#parents" aria-label="Go to Parent Zone"></a>
-      <a class="hotspot h-passwords" href="#passwords" aria-label="Go to Learn Passwords"></a>
-      <a class="hotspot h-scams" href="#scams" aria-label="Go to Spot Scams"></a>
-      <a class="hotspot h-wifi" href="#wifi" aria-label="Go to Explore Wi-Fi"></a>
-
-      <div class="hero-overlay">
-        <p class="eyebrow">Kid Tech Safety • AI Awareness • Smart Clicks</p>
-        <h1>Welcome to the Tech Lab!</h1>
-        <p class="hero-copy">Learn. Play. Stay safe. Be an IT hero with T-Why and Byte.</p>
-        <div class="hero-buttons">
-          <a class="btn primary" href="#missions">🚀 Start Your Mission</a>
-          <a class="btn secondary" href="#word-lab">🅱️ Play Word Lab</a>
-        </div>
+    <section class="intro">
+      <p class="pill">Kid Tech Safety • AI Awareness • Smart Clicks</p>
+      <h1>Welcome to T-Why’s Tech Lab</h1>
+      <p>Learn. Play. Stay safe. T-Why and Byte help kids become smart clickers, safe thinkers, and confident tech explorers.</p>
+      <div class="button-row"><a class="btn primary" href="#missions">Start Your Mission</a><a class="btn secondary" href="#word-lab">Play Byte’s Word Lab</a></div>
+    </section>
+    <section class="lab-poster-section" aria-label="Interactive Tech Lab map">
+      <div class="poster-wrap">
+        <img src="twhy-tech-lab-poster.png" alt="T-Why and Byte in a colorful tech lab dashboard with clickable areas." />
+        <a class="hotspot missions-hotspot" href="#missions" aria-label="Open Missions"></a>
+        <a class="hotspot videos-hotspot" href="#videos" aria-label="Open Videos"></a>
+        <a class="hotspot games-hotspot" href="#games" aria-label="Open Games"></a>
+        <a class="hotspot wordlab-hotspot" href="#word-lab" aria-label="Open Byte's Word Lab"></a>
+        <a class="hotspot parents-hotspot" href="#parents" aria-label="Open Parent Zone"></a>
+        <a class="hotspot password-hotspot" href="#passwords" aria-label="Open Password Lesson"></a>
+        <a class="hotspot scam-hotspot" href="#scams" aria-label="Open Scam Lesson"></a>
+        <a class="hotspot wifi-hotspot" href="#wifi" aria-label="Open Wi-Fi Lesson"></a>
       </div>
+      <p class="poster-note">Click the monitors, controller, Word Lab panel, or lesson cards inside the Tech Lab.</p>
     </section>
-
-    <!-- MOBILE / ACCESSIBLE QUICK CARDS -->
-    <section class="quick-launch" aria-label="Quick launch menu">
-      <a href="#videos" class="launch-card purple">
-        <span>▶️</span>
-        <strong>Watch Episodes</strong>
-        <p>Fun videos with T-Why and Byte.</p>
-      </a>
-      <a href="#games" class="launch-card green">
-        <span>🎮</span>
-        <strong>Play Safety Quest</strong>
-        <p>Answer questions, earn stars, unlock badges.</p>
-      </a>
-      <a href="#passwords" class="launch-card blue">
-        <span>🔐</span>
-        <strong>Learn Passwords</strong>
-        <p>Create strong passwords and protect accounts.</p>
-      </a>
-      <a href="#scams" class="launch-card orange">
-        <span>🔎</span>
-        <strong>Spot Scams</strong>
-        <p>Can you spot fake links and messages?</p>
-      </a>
-      <a href="#wifi" class="launch-card violet">
-        <span>📶</span>
-        <strong>Explore Wi‑Fi</strong>
-        <p>Discover how Wi‑Fi works and stays secure.</p>
-      </a>
+    <section class="quick-cards" aria-label="Quick links">
+      <a href="#videos" class="quick-card purple"><span>▶️</span><strong>Watch Episodes</strong><p>Start with the T-Why and Byte intro.</p></a>
+      <a href="#games" class="quick-card green"><span>🎮</span><strong>Play Safety Quest</strong><p>Answer questions and earn badges.</p></a>
+      <a href="#passwords" class="quick-card blue"><span>🔐</span><strong>Learn Passwords</strong><p>Make stronger, safer passwords.</p></a>
+      <a href="#scams" class="quick-card orange"><span>🕵️</span><strong>Spot Scams</strong><p>Learn how to pause before you click.</p></a>
+      <a href="#wifi" class="quick-card violet"><span>📶</span><strong>Explore Wi‑Fi</strong><p>Understand safe connections.</p></a>
     </section>
-
-    <!-- MISSIONS -->
     <section id="missions" class="section">
-      <div class="section-heading">
-        <span class="section-icon">🚀</span>
-        <div>
-          <p class="eyebrow">Mission Control</p>
-          <h2>Pick a Tech Safety Mission</h2>
-        </div>
-      </div>
-
+      <div class="section-heading"><span>🚀</span><div><p class="pill">Mission Control</p><h2>Pick a Tech Safety Mission</h2></div></div>
       <div class="mission-grid">
-        <article id="passwords" class="info-card">
-          <span class="big-icon">🔐</span>
-          <h3>Password Power-Up</h3>
-          <p>Learn why strong passwords protect your games, apps, school accounts, and private information.</p>
-          <button class="mini-btn" data-jump-word="password">Practice this word</button>
-        </article>
-
-        <article id="scams" class="info-card">
-          <span class="big-icon">🕵️</span>
-          <h3>Spot Scams</h3>
-          <p>Byte helps you notice fake prizes, suspicious links, rush messages, and sneaky pop-ups.</p>
-          <button class="mini-btn" data-jump-word="scam">Practice this word</button>
-        </article>
-
-        <article id="wifi" class="info-card">
-          <span class="big-icon">📶</span>
-          <h3>Explore Wi‑Fi</h3>
-          <p>Discover what Wi‑Fi does, why trusted networks matter, and when to ask for help.</p>
-          <button class="mini-btn" data-jump-word="Wi-Fi">Practice this word</button>
-        </article>
-
-        <article class="info-card">
-          <span class="big-icon">🤖</span>
-          <h3>AI Copycat Check</h3>
-          <p>Learn why not everything online is real, even when it looks, sounds, or feels believable.</p>
-          <button class="mini-btn" data-jump-word="AI">Practice this word</button>
-        </article>
+        <article id="passwords" class="card"><span class="big">🔐</span><h3>Password Power-Up</h3><p>Learn why strong passwords protect games, apps, school accounts, and private information.</p><button data-word="password">Practice this word</button></article>
+        <article id="scams" class="card"><span class="big">🕵️</span><h3>Spot Scams</h3><p>Byte helps kids notice fake prizes, strange links, rush messages, and suspicious pop-ups.</p><button data-word="scam">Practice this word</button></article>
+        <article id="wifi" class="card"><span class="big">📶</span><h3>Explore Wi‑Fi</h3><p>Discover what Wi‑Fi does, why trusted networks matter, and when to ask a grown-up.</p><button data-word="Wi-Fi">Practice this word</button></article>
+        <article class="card"><span class="big">🤖</span><h3>AI Copycat Check</h3><p>Learn why not everything online is real, even when a picture or video looks believable.</p><button data-word="AI">Practice this word</button></article>
       </div>
     </section>
-
-    <!-- GAMES -->
-    <section id="games" class="section split-section">
-      <div>
-        <p class="eyebrow">Games</p>
-        <h2>Safety Quest</h2>
-        <p class="section-copy">
-          Kids learn best when they get quick feedback, simple choices, and a clear goal.
-          Safety Quest turns online safety into small challenges that feel like a game.
-        </p>
-      </div>
-      <div class="quest-panel">
-        <h3>Mission: Free Game Coins?</h3>
-        <p>A pop-up says: “Click now for free game coins!” What should you do first?</p>
-        <div class="choice-list">
-          <button data-answer="correct">Pause and ask a grown-up</button>
-          <button data-answer="wrong">Click before it disappears</button>
-          <button data-answer="wrong">Share it with friends</button>
-        </div>
-        <p id="questResult" class="result-text" aria-live="polite"></p>
-      </div>
-    </section>
-
-    <!-- VIDEOS -->
-    <section id="videos" class="section">
-      <div class="section-heading">
-        <span class="section-icon">▶️</span>
-        <div>
-          <p class="eyebrow">Videos</p>
-          <h2>Launch Episodes</h2>
-        </div>
-      </div>
-
-      <div class="video-grid">
-        <article class="video-card">
-          <div class="video-thumb">🤖</div>
-          <h3>Meet T-Why and Byte</h3>
-          <p>T-Why introduces the Tech Lab while Byte pops in with jokes, scans, and safety reminders.</p>
-        </article>
-
-        <article class="video-card">
-          <div class="video-thumb">🔗</div>
-          <h3>The Sneaky Link</h3>
-          <p>A strange message promises a prize. T-Why and Byte teach kids how to pause before they click.</p>
-        </article>
-
-        <article class="video-card">
-          <div class="video-thumb">🔐</div>
-          <h3>Password Power-Up</h3>
-          <p>Byte learns why “pizza123” is not a strong password and helps build a better one.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- WORD LAB -->
-    <section id="word-lab" class="section word-lab">
-      <div class="word-header">
-        <div>
-          <p class="eyebrow">Byte's Word Lab</p>
-          <h2>Learn it. Click it. Know it!</h2>
-          <p class="section-copy">
-            Byte teaches 50 easy tech words with quick definitions and a multiple-choice game.
-          </p>
-        </div>
-        <div class="lab-stats">
-          <span>🔥 Streak: <strong id="streak">0</strong></span>
-          <span>⭐ Score: <strong id="score">0</strong></span>
-          <span>✅ Learned: <strong id="learned">0</strong></span>
-        </div>
-      </div>
-
-      <div class="word-game">
-        <aside class="byte-helper">
-          <div class="byte-face">🅱️</div>
-          <h3>Byte says:</h3>
-          <p id="byteHint">Pick the answer that matches the word!</p>
-          <button id="newWordBtn" class="btn primary" type="button">Try another word</button>
-        </aside>
-
-        <div class="word-card">
-          <p class="small-label">What's the word?</p>
-          <h3 id="currentWord">password</h3>
-          <p id="currentDefinition">A secret word or phrase you use to log in and keep your account safe.</p>
-          <div id="answerButtons" class="answer-buttons"></div>
-          <p id="wordResult" class="result-text" aria-live="polite"></p>
-        </div>
-
-        <aside class="word-bank">
-          <h3>Word Bank</h3>
-          <p>50 words</p>
-          <div id="wordBankButtons" class="word-bank-buttons"></div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- PARENT ZONE -->
-    <section id="parents" class="section parent-zone">
-      <div class="section-heading">
-        <span class="section-icon">👥</span>
-        <div>
-          <p class="eyebrow">Parent Zone</p>
-          <h2>Built for Safe, Simple Learning</h2>
-        </div>
-      </div>
-
-      <div class="parent-grid">
-        <article>
-          <h3>No complicated tech talk</h3>
-          <p>Each lesson turns one online safety idea into simple words, visuals, and repeatable rules.</p>
-        </article>
-        <article>
-          <h3>Pause. Ask why. Ask a grown-up.</h3>
-          <p>The show repeats a simple decision-making rule that kids can use before clicking, downloading, or sharing.</p>
-        </article>
-        <article>
-          <h3>Made for short attention spans</h3>
-          <p>Videos, missions, and games are designed as short, colorful learning moments instead of long lectures.</p>
-        </article>
-      </div>
-    </section>
+    <section id="games" class="section split"><div><p class="pill">Games</p><h2>Safety Quest</h2><p class="section-copy">Safety Quest turns online safety into quick challenges with simple choices, instant feedback, and repeatable rules kids can remember.</p></div><div class="quest-card"><h3>Mission: Free Game Coins?</h3><p>A pop-up says: “Click now for free game coins!” What should you do first?</p><div class="choices"><button data-answer="correct">Pause and ask a grown-up</button><button data-answer="wrong">Click before it disappears</button><button data-answer="wrong">Share it with friends</button></div><p id="questResult" class="result" aria-live="polite"></p></div></section>
+    <section id="videos" class="section"><div class="section-heading"><span>▶️</span><div><p class="pill">Videos</p><h2>Launch Episodes</h2></div></div><div class="video-layout"><div class="video-box"><video controls preload="metadata" poster="twhy-tech-lab-poster.png"><source src="twhy-byte-intro.mp4" type="video/mp4" />Your browser does not support the video tag.</video></div><div class="video-info"><h3>Meet T-Why and Byte</h3><p>T-Why introduces the Tech Lab, Byte brings the comic relief, and kids learn the main rule: pause, ask why, and ask a grown-up.</p></div></div></section>
+    <section id="word-lab" class="section word-lab"><div class="word-lab-header"><div><p class="pill">Byte’s Word Lab</p><h2>Learn it. Click it. Know it.</h2><p class="section-copy">Byte teaches 50 easy tech words with quick definitions and a multiple-choice game.</p></div><div class="stats"><span>⭐ Score: <strong id="score">0</strong></span><span>🔥 Streak: <strong id="streak">0</strong></span><span>✅ Learned: <strong id="learned">0</strong></span></div></div><div class="word-game"><aside class="byte-panel"><div class="byte-face">🅱️</div><h3>Byte says:</h3><p id="byteHint">Pick the answer that matches the word!</p><button id="newWordBtn" class="btn primary" type="button">Try another word</button></aside><div class="word-card"><p class="small-label">What’s the word?</p><h3 id="currentWord">password</h3><p id="currentDefinition">A secret word or phrase you use to log in and keep your account safe.</p><div id="answerButtons" class="answer-buttons"></div><p id="wordResult" class="result" aria-live="polite"></p></div><aside class="word-bank"><h3>Word Bank</h3><p>50 words</p><div id="wordBankButtons" class="word-bank-buttons"></div></aside></div></section>
+    <section id="parents" class="section"><div class="section-heading"><span>👥</span><div><p class="pill">Parent Zone</p><h2>Built for Safe, Simple Learning</h2></div></div><div class="parent-grid"><article class="card"><h3>No complicated tech talk</h3><p>Each lesson turns one online safety idea into simple words, visuals, and repeatable rules.</p></article><article class="card"><h3>Pause. Ask why. Ask a grown-up.</h3><p>The show repeats a simple decision rule kids can use before clicking, downloading, or sharing.</p></article><article class="card"><h3>Made for short attention spans</h3><p>Videos, missions, and games are designed as short, colorful learning moments instead of long lectures.</p></article></div></section>
   </main>
-
-  <footer class="site-footer">
-    <strong>T-Why The IT Guy</strong> + <strong>Byte</strong> — helping kids become smart clickers, safe thinkers, and confident tech explorers.
-  </footer>
-
+  <footer><strong>T-Why The IT Guy</strong> + <strong>Byte</strong> — helping kids become smart clickers, safe thinkers, and confident tech explorers.</footer>
   <script src="script.js"></script>
 </body>
 </html>
